@@ -1,12 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import { dispatch, getState } from './redux/state/Store';
-import { actionCreators } from './redux/actions';
-//import { getUsersFromStore } from './redux/reducers';
-
-// const action = new Action();
+import { dispatch, getState } from './redux/store/Store';
+import { actionCreators } from './redux/actions/action';
+import { getIUserState } from './redux/reducers/reducer';
 
 class App extends React.Component {
   
@@ -20,30 +17,17 @@ class App extends React.Component {
         </div>)
     }
 
-
-  //   getUser = async () => {
-  //     console.log("hello");
-  //     await axios.get("http://localhost:5000/user/getUser").then(user => {
-  //         this.setState({
-  //           user: user.data
-  //         });
-  //     })
-  //     console.log(this.state.user);
-  // }
-
   addUser = async () => {
 
     await axios.post("http://localhost:5000/user/createUser", {id: 100, name: 'Nish'}).then(user => {
        dispatch(actionCreators.addUser(user.data));
        console.log(user);
     })
-   // console.log(store.getStore().dispatch(action.addUser({id: 1, name: 'Nish'})));
   }
   
    getUsers = () => {
-     console.log(getState().initialState);
-      //getUsersFromStore(store1.getState());
-      
+     console.log(getState());
+     console.log(getIUserState());      
    }
 }
 

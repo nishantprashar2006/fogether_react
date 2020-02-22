@@ -1,5 +1,5 @@
-import { IInitialState } from "../reducers";
+import { IUserState } from "../stateInterfaces/IUserState";
 
 export interface IState {
-    initialState: IInitialState;
+    initialUserState: IUserState;
 }
