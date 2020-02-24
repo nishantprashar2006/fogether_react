@@ -4,28 +4,35 @@ import axios from 'axios';
 import { dispatch, getState } from './redux/store/Store';
 import { actionCreators } from './redux/actions/action';
 import { getIUserState } from './redux/reducers/reducer';
-import test from './Test';
+import appDom from './AppDom';
+import Signup from './components/Signup/Signup';
+
 
 class App extends React.Component {
   
-   render(){
+   render() {
         return (
-          test.call(this)
+          appDom.call(this)
         );
     }
 
-  addUser = async () => {
 
-    await axios.post("http://localhost:5000/user/createUser", {id: 100, name: 'Nish'}).then(user => {
-       dispatch(actionCreators.addUser(user.data));
-       console.log(user);
-    })
-  }
+    showSignup(){
+        
+    }
+
+  // addUser: any = async () => {
+
+  //   await axios.post("http://localhost:5000/user/createUser", {id: 100, name: 'Nish'}).then(user => {
+  //      dispatch(actionCreators.addUser(user.data));
+  //      console.log(user);
+  //   })
+  // }
   
-   getUsers = () => {
-     console.log(getState());
-     console.log(getIUserState());      
-   }
+  //  getUsers = () => {
+  //    console.log(getState());
+  //    console.log(getIUserState());      
+  //  }
 }
 
 export default App;
