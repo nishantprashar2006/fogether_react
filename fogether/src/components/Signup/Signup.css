@@ -1,0 +1,30 @@
+.container {
+    /* width:100%; */
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+*, ::after, ::before {
+    box-sizing: content-box !important;
+}
+
+/* .btn-info {
+    color: #fff;
+    background-color: #5f1589 !important;
+    border-color: #5f1589 !important;
+} */
+
+.container_backgroundColor {
+    /* background-color: #9c2b81 !important; */
+    background-image: linear-gradient(to top, #e176ac, #9c2b81, #5F1589);;
+}
+
+.signup-button-margin {
+    margin-top: 15px;
+}
+
+.jumbotron {
+    border-radius: 0rem !important;
+}

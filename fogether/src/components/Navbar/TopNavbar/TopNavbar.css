@@ -15,3 +15,8 @@
   .formTop{
       margin-top: 20px
   }
+
+  .navbar-background {
+    background-color: #5f1589;
+    color: #ffff;
+}

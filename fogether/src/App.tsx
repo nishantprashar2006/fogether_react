@@ -9,7 +9,6 @@ import Signup from './components/Signup/Signup';
 
 
 class App extends React.Component {
-  
    render() {
         return (
           appDom.call(this)
