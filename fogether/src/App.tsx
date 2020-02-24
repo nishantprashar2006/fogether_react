@@ -4,17 +4,14 @@ import axios from 'axios';
 import { dispatch, getState } from './redux/store/Store';
 import { actionCreators } from './redux/actions/action';
 import { getIUserState } from './redux/reducers/reducer';
+import test from './Test';
 
 class App extends React.Component {
   
    render(){
         return (
-          <div className="App">
-          <h1>Hello</h1>
-          <button className="btn btn-md btn-success" onClick = {this.addUser}>Add User</button>
-          <br/><br/>
-          <button className="btn btn-md btn-success" onClick = {this.getUsers}>Get User</button>
-        </div>)
+          test.call(this)
+        );
     }
 
   addUser = async () => {
