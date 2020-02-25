@@ -8,17 +8,20 @@ import { setupStore } from './redux/store/SetupStore';
 import { setStore } from './redux/store/Store';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const store = setupStore() as Store;
 setStore(store);
 
 ReactDOM.render(
- (
- <Provider store={store} >
- <App />
- </Provider>
- ),
- document.getElementById('root') as HTMLElement
+    (
+        <BrowserRouter>
+            <Provider store={store} >
+                <App />
+            </Provider>
+        </BrowserRouter>
+    ),
+    document.getElementById('root') as HTMLElement
 );
 
 // ReactDOM.render(<App />, document.getElementById('root'));

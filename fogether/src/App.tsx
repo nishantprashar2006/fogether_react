@@ -4,34 +4,26 @@ import axios from 'axios';
 import { dispatch, getState } from './redux/store/Store';
 import { actionCreators } from './redux/actions/action';
 import { getIUserState } from './redux/reducers/reducer';
-import appDom from './AppDom';
-import Signup from './components/Signup/Signup';
+import Signup from './Signup/Signup';
+import { Switch, Route } from 'react-router-dom';
+import Home from './Home/Home';
+import TopNavbar from './Navbar/TopNavbar/TopNavbar';
 
 
 class App extends React.Component {
-   render() {
-        return (
-          appDom.call(this)
-        );
-    }
+  render() {
+    return (
+      <main>
+        <TopNavbar/>      
+        <Switch>
+          <Route path='/' component={Signup} exact/>
+          <Route path='/home' component={Home} />
+        </Switch>
+      </main>
+    );
+  }
 
 
-    showSignup(){
-        
-    }
-
-  // addUser: any = async () => {
-
-  //   await axios.post("http://localhost:5000/user/createUser", {id: 100, name: 'Nish'}).then(user => {
-  //      dispatch(actionCreators.addUser(user.data));
-  //      console.log(user);
-  //   })
-  // }
-  
-  //  getUsers = () => {
-  //    console.log(getState());
-  //    console.log(getIUserState());      
-  //  }
 }
 
 export default App;
