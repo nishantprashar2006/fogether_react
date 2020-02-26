@@ -1,23 +1,28 @@
 import React from 'react';
 import './App.css';
-import axios from 'axios';
-import { dispatch, getState } from './redux/store/Store';
-import { actionCreators } from './redux/actions/action';
-import { getIUserState } from './redux/reducers/reducer';
-import appDom from './AppDom';
-import Signup from './components/Signup/Signup';
+// import axios from 'axios';
 
+// import { 
+//   dispatch, 
+//   getState 
+// } from './redux/store/Store';
+// import { actionCreators } from './redux/actions/action';
+// import { getIUserState } from './redux/reducers/reducer';
+import AppHeaderContainer from './homepage/components/AppHeaderContainer';
+import AppBodyContainer from './homepage/components/AppBodyContainer';
+import AppFooterContainer from './homepage/components/AppFooterContainer';
+
+const DEFAULT_CLASSNAME = 'App';
 
 class App extends React.Component {
    render() {
         return (
-          appDom.call(this)
+          <div className={DEFAULT_CLASSNAME}>
+            <AppHeaderContainer/>
+            <AppBodyContainer />
+            <AppFooterContainer />
+         </div>
         );
-    }
-
-
-    showSignup(){
-        
     }
 
   // addUser: any = async () => {
