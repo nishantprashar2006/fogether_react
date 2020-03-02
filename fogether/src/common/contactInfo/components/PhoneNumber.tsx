@@ -1,13 +1,30 @@
 import React from 'react';
 
-const PHONE_NUMBER_PLACEHOLDER: string = 'Enter Phone Number';
-class PhoneNumber extends React.Component {
+interface IPhoneNumberProps {
+  setPhoneNumber: (phoneNumber: string) => void;
+}
+
+const PHONE_NUMBER_PLACEHOLDER: string = 'Phone Number';
+class PhoneNumber extends React.Component<IPhoneNumberProps, {}> {
+
+  private phoneNumberRef = React.createRef<HTMLInputElement>();
+  constructor(props: any) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
-       <input type="tel" value="" placeholder={PHONE_NUMBER_PLACEHOLDER} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required/>
+        <input type="tel" placeholder={PHONE_NUMBER_PLACEHOLDER} ref={this.phoneNumberRef} onBlur={this.setPhoneNumber} />
       </div>
     );
+  }
+
+  setPhoneNumber = () => {
+    if (this.phoneNumberRef.current !== null) {
+      console.log(this.phoneNumberRef.current.value);
+      this.props.setPhoneNumber(this.phoneNumberRef.current.value);
+    }
   }
 }
 

@@ -1,5 +1,5 @@
 import {ADD_USER} from '../constants/action-type'
-import { IUser } from '../domain/IUser';
+import { IUser } from '../../homepage/interfaces/IUser';
 
 export const actionCreators = {
 

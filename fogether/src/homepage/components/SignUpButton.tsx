@@ -1,13 +1,13 @@
 import React from 'react';
 
-class SignUpButton extends React.Component {
-    render() {
-        return (
-            <div>
-                <button>Sign Up</button>
-            </div>
-        );
-    }
+interface ISignUpButtonProps {
+    onClick: () => void;
 }
 
-export default SignUpButton;
+export default function SignUpButton(props: ISignUpButtonProps) {
+    return (
+        <div>
+            <button type="button" onClick={props.onClick}>Sign Up</button>
+        </div>
+    );
+}

@@ -1,14 +1,31 @@
 import React from 'react';
 
-const EMAIL_PLACEHOLDER: string = 'EMAIL';
-class Email extends React.Component {
+interface IEmailProps {
+  setEmail: (email: string) => void;
+}
+
+const EMAIL_PLACEHOLDER: string = 'Email';
+class Email extends React.Component<IEmailProps, {}> {
+
+  private emailRef = React.createRef<HTMLInputElement>();
+  constructor(props: any) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
-       <input type="Email" value="" placeholder={EMAIL_PLACEHOLDER} />
+        <input type="Email" placeholder={EMAIL_PLACEHOLDER} ref={this.emailRef} onBlur={this.setEmail} />
       </div>
     );
   }
+
+  setEmail = () => {
+    if (this.emailRef.current !== null) {
+      this.props.setEmail(this.emailRef.current.value);
+    }
+  }
+  
 }
 
 export default Email;
